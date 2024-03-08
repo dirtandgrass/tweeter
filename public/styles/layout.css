@@ -6,7 +6,10 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -14,10 +17,20 @@ html {
  * Global layout stuff
  */
 
+:root {
+  --primary-color: #4056A1;
+  --primary-contrast-color: #FFF;
+  --highlight-color: #E03F2E;
+}
+
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+
+  font-family: "Source Sans 3", sans-serif;
+  /* font-family: Bungee; */
+  font-weight: 350;
 }
 
 /*
