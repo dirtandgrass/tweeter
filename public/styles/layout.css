@@ -20,7 +20,10 @@ html {
 :root {
   --primary-color: #4056A1;
   --primary-contrast-color: #FFF;
-  --highlight-color: #E03F2E;
+  --highlight-color: #D69925;
+
+  --header-nav-height: 120px;
+  --header-height: 400px;
 }
 
 body {

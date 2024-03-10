@@ -1,0 +1,22 @@
+.header {
+  padding-block-start: calc(var(--header-nav-height) + 2rem);
+  height: var(--header-height);
+  background-color: var(--highlight-color);
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+
+
+.header__avatar {
+  height: calc(var(--header-height) - 9.5em);
+}
+
+.header__name {
+  color: var(--primary-contrast-color);
+  margin-block: 0;
+  font-weight: 300;
+}
