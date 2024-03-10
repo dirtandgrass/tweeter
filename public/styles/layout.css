@@ -36,6 +36,11 @@ body {
   font-weight: 350;
 }
 
+main {
+  width: 90%;
+  margin-inline: auto;
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
