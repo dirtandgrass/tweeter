@@ -39,6 +39,7 @@ body {
 main {
   width: 90%;
   margin-inline: auto;
+  background-color: inherit;
 }
 
 /*
