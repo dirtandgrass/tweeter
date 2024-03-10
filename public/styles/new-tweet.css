@@ -1,0 +1,29 @@
+.new-tweet {
+  margin-block: 2em;
+}
+
+.new-tweet__call-to-action {
+  font-weight: 700;
+}
+
+
+.new-tweet__inputtext {
+  min-width: 100%;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  border-block-end: 4px solid;
+  border-block-end-color: var(--form-font-color);
+  /* setting color to var in one line, doesn't seem to work */
+  resize: none;
+  color: var(--form-font-color);
+  font-weight: 500;
+}
+
+.new-tweet__submission {
+  font-family: Bungee, "Arial Bold", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-block: 0.5em;
+}
