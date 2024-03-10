@@ -26,6 +26,7 @@ html {
   --primary-background-color: #f4f1ec;
 
   --form-font-color: darken(var(--primary-font-color), 65%);
+  --error: #9d1a3d;
 
   --header-nav-height: 120px;
   --header-height: 400px;
@@ -56,7 +57,9 @@ main {
   padding-inline: 0.4em;
 }
 
-
+.error {
+  color: var(--error)
+}
 
 
 /*

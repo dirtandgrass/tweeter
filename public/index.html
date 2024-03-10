@@ -23,12 +23,15 @@
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
   <!-- External JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 </head>
 
 <body>
@@ -59,7 +62,7 @@
           placeholder="Share your thoughts..."></textarea>
         <div class="new-tweet__submission">
           <button class="button" type="submit">Tweet</button>
-          <output name="counter" id="character_remaining" class="new-tweet__counter" for="tweet-text">140</output>
+          <output name="counter" class="new-tweet__counter" for="tweet-text">140</output>
         </div>
       </form>
     </section>
