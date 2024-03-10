@@ -52,23 +52,17 @@
 
   <!-- Page-specific (main) content here -->
   <main class="container">
-    <h2>Lorem ipsum dolor sit</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium dolor autem consequatur! Ipsum similique
-      sed, expedita deserunt quas dolorem nihil consectetur repellendus vero placeat itaque, sit, nisi cum ullam
-      aliquid.</p>
-    <h2>Lorem ipsum dolor sit</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium dolor autem consequatur! Ipsum similique
-      sed, expedita deserunt quas dolorem nihil consectetur repellendus vero placeat itaque, sit, nisi cum ullam
-      aliquid.</p>
-    <h2>Lorem ipsum dolor sit</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium dolor autem consequatur! Ipsum similique
-      sed, expedita deserunt quas dolorem nihil consectetur repellendus vero placeat itaque, sit, nisi cum ullam
-      aliquid.</p>
-    <h2>Lorem ipsum dolor sit</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium dolor autem consequatur! Ipsum similique
-      sed, expedita deserunt quas dolorem nihil consectetur repellendus vero placeat itaque, sit, nisi cum ullam
-      aliquid.</p>
-
+    <section class="new-tweet">
+      <form action="/tweets/" method="post" enctype="application/x-www-form-urlencoded">
+        <label class="new-tweet__call-to-action" for="tweet-text">What are you humming about?</label>
+        <textarea class="new-tweet__inputtext" name="text" id="tweet-text"
+          placeholder="Share your thoughts..."></textarea>
+        <div class="new-tweet__submission">
+          <button class="button" type="submit">Tweet</button>
+          <output name="counter" id="character_remaining" class="new-tweet__counter" for="tweet-text">140</output>
+        </div>
+      </form>
+    </section>
   </main>
 </body>
 

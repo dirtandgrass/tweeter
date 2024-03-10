@@ -22,13 +22,18 @@ html {
   --primary-contrast-color: #FFF;
   --highlight-color: #D69925;
 
+  --primary-font-color: #545149;
+  --primary-background-color: #f4f1ec;
+
+  --form-font-color: darken(var(--primary-font-color), 65%);
+
   --header-nav-height: 120px;
   --header-height: 400px;
 }
 
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: var(--primary-font-color);
+  background-color: var(--primary-background-color);
   font-size: 24px;
 
   font-family: "Source Sans 3", sans-serif;
@@ -40,6 +45,46 @@ main {
   width: 90%;
   margin-inline: auto;
   background-color: inherit;
+}
+
+.button {
+  border: none;
+
+  background-color: var(--primary-color);
+  color: var(--primary-contrast-color);
+  padding-block: 0.25em;
+  padding-inline: 0.4em;
+}
+
+
+.new-tweet {
+  margin-block: 2em;
+}
+
+.new-tweet__call-to-action {
+  font-weight: 700;
+}
+
+
+.new-tweet__inputtext {
+  min-width: 100%;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  border-block-end: 4px solid;
+  border-block-end-color: var(--form-font-color);
+  /* setting color to var in one line, doesn't seem to work */
+  resize: none;
+  color: var(--form-font-color);
+  font-weight: 500;
+}
+
+.new-tweet__submission {
+  font-family: Bungee, "Arial Bold", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-block: 0.5em;
 }
 
 /*
