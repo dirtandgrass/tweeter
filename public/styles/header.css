@@ -1,13 +1,14 @@
 .header {
-  padding-block-start: calc(var(--header-nav-height) + 2rem);
+  padding-block-start: var(--header-nav-height);
   height: var(--header-height);
-  background-color: var(--highlight-color);
   display: flex;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  background: var(--highlight-color) url('../images/3px-tile-50.png');
+  background-blend-mode: overlay;
 }
+
 
 
 
