@@ -12,11 +12,11 @@
   border: none;
   outline: none;
   background-color: inherit;
-  border-block-end: 4px solid;
-  border-block-end-color: var(--form-font-color);
+  border-block-end: var(--border-width) solid;
+  border-block-end-color: var(--primary-dark-color);
   /* setting color to var in one line, doesn't seem to work */
   resize: none;
-  color: var(--form-font-color);
+  color: var(--primary-dark-color);
   font-weight: 500;
 }
 

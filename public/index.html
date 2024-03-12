@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
   <!-- External JS -->
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
@@ -65,6 +66,32 @@
           <output name="counter" class="new-tweet__counter" for="tweet-text">140</output>
         </div>
       </form>
+    </section>
+    <section class="tweet-container">
+      <article class="tweet">
+        <header>
+          <div class="tweet__profile">
+            <img src="images/profile_icons/female_1.png" />
+            <div>Rhoda Jacobs</div>
+          </div>
+          <div class="tweet__handle">@MrsJacobs</div>
+        </header>
+        <div class="tweet__tweet">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <footer>
+          <div class="tweet__age">10 days ago</div>
+          <div class="tweet__actions">
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-retweet"></i>
+            <i class="fa-solid fa-heart">
+              <span class="count">1</span>
+            </i>
+          </div>
+        </footer>
+        </div>
+      </article>
     </section>
   </main>
 </body>

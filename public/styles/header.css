@@ -1,6 +1,6 @@
 .header {
   padding-block-start: var(--header-nav-height);
-  height: var(--header-height);
+  block-size: var(--header-height);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,7 @@
 
 
 .header__avatar {
-  height: calc(var(--header-height) - 9.5em);
+  block-size: calc(var(--header-height) - 9.5em);
 }
 
 .header__name {

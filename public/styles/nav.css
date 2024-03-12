@@ -7,7 +7,7 @@
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  width: 100dvw;
+  inline-size: 100dvw;
   padding-block-start: 1em;
   font-size: 1.2em;
 }
