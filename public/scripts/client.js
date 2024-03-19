@@ -20,12 +20,12 @@ const postTweet = function(event) {
     return;
   }
 
-
-
-  console.log($(this).children('.new-tweet__inputtext').val());
+  if(tweetElement.val().length === 0) {
+    showErrorMessage('No tweet text entered!');
+    return;
+  }
 
   const tweetText = $(this).serialize();
-
 
   $.post('/tweets', tweetText, (data) => {
     $.getJSON('/tweets', (data) => {
