@@ -22,7 +22,7 @@ const postTweet = function(event) {
 
 
 
-  const tweetText = trim(sanitize(tweetElement.val()));
+  const tweetText = sanitize(tweetElement.val()).trim();;
 
   if(tweetText.length === 0) {
     showErrorMessage('No tweet text entered!');
@@ -95,7 +95,7 @@ const createTweetElement = (tweet) => {
 
   // if empty tweet, return
   if(!tweet || !tweet.content || !tweet.content.text || !tweet.user || !tweet.user.name || !tweet.user.handle || !tweet.created_at) {
-    return;
+    return false;
   };
 
   const whenDate = new Date(tweet.created_at);
