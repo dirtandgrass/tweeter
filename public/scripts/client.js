@@ -7,15 +7,28 @@
 
 // eslint-disable-next-line no-undef
 $(() => {
-  const $tweet = createTweetElement(tweetData);
+
+  $.getJSON('/tweets', (data) => {
+    clearTweets();
+    renderTweets(data);
+    $('time.tweet__age').timeago();
+  });
 
 
 
-  $('.tweet-container').append($tweet);
-
-  $('time.tweet__age').timeago();
 
 });
+
+const clearTweets = () => {
+  $('.tweet-container').empty();
+};
+
+const renderTweets = (tweets) => {
+  for (const tweet of tweets) {
+    const $tweet = createTweetElement(tweet);
+    $('.tweet-container').append($tweet);
+  }
+};
 
 
 const createTweetElement = (tweet) => {
@@ -45,16 +58,4 @@ const createTweetElement = (tweet) => {
         </footer>
         </div>
       </article>`);
-};
-
-const tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-    "handle": "@SirIsaac"
-  },
-  "content": {
-    "text": "If I have seen further it is by standing on the shoulders of giants"
-  },
-  "created_at": 1461116232227
 };
