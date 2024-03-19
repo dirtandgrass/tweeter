@@ -10,6 +10,7 @@ $(() => {
 
   loadTweets();
 
+
   $('.new-tweet form').submit(function(event) {
     event.preventDefault();
     const tweetText = $(this).serialize();
@@ -55,11 +56,6 @@ const renderTweets = (tweets) => {
 
   }
 };
-
-const sanitize = (content) => {
-  return $(`<i>${content}</i>`).text();
-
-}
 
 
 const createTweetElement = (tweet) => {

@@ -4,6 +4,9 @@ $(function() {
 
   $('#tweet-text').on('input', function() {
     const maxChars = 140;
+
+    $(this).val(sanitize($(this).val()));
+
     const currentChars = $(this).val().length;
     const remainingChars = maxChars - currentChars;
     const counter = $(this).siblings('.new-tweet__submission').children('.new-tweet__counter');
@@ -13,5 +16,5 @@ $(function() {
     } else {
       counter.removeClass('error');
     }
-  }); // Added closing parenthesis here
+  });
 });
