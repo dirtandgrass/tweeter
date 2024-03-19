@@ -20,15 +20,27 @@ const postTweet = function(event) {
     return;
   }
 
-  if(tweetElement.val().length === 0) {
+
+
+  const tweetText = trim(sanitize(tweetElement.val()));
+
+  if(tweetText.length === 0) {
     showErrorMessage('No tweet text entered!');
     return;
   }
 
-  const tweetText = $(this).serialize();
+  if(tweetText.length > 140) {
+    showErrorMessage('Tweet exceededs character limit!');
+    return;
+  }
 
-  $.post('/tweets', tweetText, (data) => {
-    $.getJSON('/tweets', (data) => {
+  const tweetParams = $(this).serialize();
+
+  $.post('/tweets', tweetParams, (data) => {
+    $.getJSON('/tweets')
+    .done((data) => {
+      $('.new-tweet__inputtext').val('');
+      $('.new-tweet__counter').text('140');
       clearTweets();
       data.sort((a, b) => b.created_at - a.created_at);
       renderTweets(data);
@@ -36,8 +48,7 @@ const postTweet = function(event) {
     });
   });
 
-  $('.new-tweet__inputtext').val('');
-  $('.new-tweet__counter').text('140');
+
 }
 
 let errorTimeout;
