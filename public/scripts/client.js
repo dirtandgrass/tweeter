@@ -5,6 +5,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const animSpeed = 250;
 
 $(() => {
   loadTweets();
@@ -18,7 +19,14 @@ $(() => {
   });
 
   $('.header-nav__sub').on('click', function() {
-    $('.new-tweet').slideToggle('medium');
+    if($('.new-tweet').is(':visible')) {
+      $('.new-tweet').slideUp(animSpeed);
+    } else {
+      $('.new-tweet').slideDown(animSpeed, function() {
+        $('.new-tweet__inputtext').focus();
+      });
+    }
+
   });
 });
 
@@ -60,13 +68,13 @@ let errorTimeout;
 const showErrorMessage = (message) => {
   const $error = $('.error');
   $error.text(message);
-  $error.fadeIn('medium');
+  $error.fadeIn(animSpeed);
 
   if(errorTimeout) {
     clearTimeout(errorTimeout);
   }
   errorTimeout = setTimeout(() => {
-    $error.fadeOut('medium');
+    $error.fadeOut(animSpeed);
   },3000);
 };
 
@@ -74,7 +82,7 @@ const hideErrorMessage = () => {
   if(errorTimeout) {
     clearTimeout(errorTimeout);
   }
-  $('.error').fadeOut('medium');
+  $('.error').fadeOut(animSpeed);
 }
 
 

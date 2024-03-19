@@ -1,5 +1,6 @@
 .new-tweet {
   margin-block: 2em;
+  display: none;
 }
 
 .new-tweet__call-to-action {
