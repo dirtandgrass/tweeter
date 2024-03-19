@@ -56,6 +56,11 @@ const renderTweets = (tweets) => {
   }
 };
 
+const sanitize = (content) => {
+  return $(`<i>${content}</i>`).text();
+
+}
+
 
 const createTweetElement = (tweet) => {
 
@@ -65,24 +70,26 @@ const createTweetElement = (tweet) => {
   };
 
   const whenDate = new Date(tweet.created_at);
-  let whenString = tweet.created_at;
+  let whenString = sanitize(tweet.created_at);
 
   // if valid date, generate timeago string or locale string if timeago is not defined
   if(whenDate instanceof Date && !isNaN(whenDate)) {
-    whenString = !timeago ? whenDate.toLocaleString() : timeago.format(whenDate);
+    whenString = timeagoFail ?  whenDate.toLocaleString() : timeago.format(whenDate);
   }
+
+
 
   return $(`
   <article class="tweet">
         <header>
           <div class="tweet__profile">
-            <img src="${tweet.user.avatars}" alt="author avatar"/>
-            <div>${tweet.user.name}</div>
+            <img src="${sanitize(tweet.user.avatars)}" alt="author avatar"/>
+            <div>${sanitize(tweet.user.name)}</div>
           </div>
-          <div class="tweet__handle">${tweet.user.handle}</div>
+          <div class="tweet__handle">${sanitize(tweet.user.handle)}</div>
         </header>
         <div class="tweet__tweet">
-          <p>${tweet.content.text}</p>
+          <p>${sanitize(tweet.content.text)}</p>
         </div>
         <footer>
           <time class="tweet__age" datetime="${whenDate}">${whenString}</time>
