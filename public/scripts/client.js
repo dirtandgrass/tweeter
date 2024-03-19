@@ -10,11 +10,28 @@ $(() => {
 
   $.getJSON('/tweets', (data) => {
     clearTweets();
+    data.sort((a, b) => b.created_at - a.created_at);
     renderTweets(data);
     $('time.tweet__age').timeago();
   });
 
+  $('.new-tweet form').submit(function(event) {
+    event.preventDefault();
+    const tweetText = $(this).serialize();
 
+
+    $.post('/tweets', tweetText, (data) => {
+      $.getJSON('/tweets', (data) => {
+        clearTweets();
+        data.sort((a, b) => b.created_at - a.created_at);
+        renderTweets(data);
+        $('time.tweet__age').timeago();
+      });
+    });
+
+    $('.new-tweet__inputtext').val('');
+    $('.new-tweet__counter').text('140');
+  });
 
 
 });
