@@ -8,12 +8,7 @@
 // eslint-disable-next-line no-undef
 $(() => {
 
-  $.getJSON('/tweets', (data) => {
-    clearTweets();
-    data.sort((a, b) => b.created_at - a.created_at);
-    renderTweets(data);
-    $('time.tweet__age').timeago();
-  });
+  loadTweets();
 
   $('.new-tweet form').submit(function(event) {
     event.preventDefault();
@@ -25,7 +20,7 @@ $(() => {
         clearTweets();
         data.sort((a, b) => b.created_at - a.created_at);
         renderTweets(data);
-        $('time.tweet__age').timeago();
+
       });
     });
 
@@ -35,6 +30,14 @@ $(() => {
 
 
 });
+
+const loadTweets = () => {
+  $.getJSON('/tweets', (data) => {
+    clearTweets();
+    data.sort((a, b) => b.created_at - a.created_at);
+    renderTweets(data);
+  });
+};
 
 const clearTweets = () => {
   $('.tweet-container').empty();
@@ -64,7 +67,7 @@ const createTweetElement = (tweet) => {
           <p>${tweet.content.text}</p>
         </div>
         <footer>
-          <time class="tweet__age" datetime="${when.toISOString()}">${when.toLocaleString()}</time>
+          <time class="tweet__age" datetime="${when.toISOString()}">${timeago.format(when)}</time>
           <div class="tweet__actions">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
