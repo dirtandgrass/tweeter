@@ -40,10 +40,14 @@ const postTweet = function(event) {
 
   const tweetParams = $(this).serialize();
 
-  $.post('/tweets', tweetParams).done((data) => {
+  $.post('/tweets', tweetParams)
+    .done((data) => {
       $('.new-tweet__inputtext').val('');
       $('.new-tweet__counter').text('140');
       loadTweets();
+    })
+    .fail((jqXHR, status, err) => {
+      showErrorMessage(`Error posting tweet: <strong>${status}</strong><p>${err}`);
     });
 }
 
