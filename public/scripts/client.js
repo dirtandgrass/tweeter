@@ -8,6 +8,27 @@
 const animSpeed = 250;
 
 $(() => {
+
+  $(window).on( "scroll", function() {
+    if($(this).scrollTop() > 200) {
+      $('.scroll-top').fadeIn(animSpeed).css('display', 'grid');
+    } else {
+      $('.scroll-top').fadeOut(animSpeed);
+    }
+  });
+
+  $('.scroll-top').on('click', function() {
+    $('html, body').animate({scrollTop: 0}, animSpeed);
+    if($('.new-tweet').is(':hidden')) {
+      $('.new-tweet').slideDown(animSpeed, function() {
+        $('.new-tweet__inputtext').focus();
+      });
+    } else {
+      $('.new-tweet__inputtext').focus();
+    }
+  });
+
+
   loadTweets();
   $('.new-tweet form').submit(postTweet);
   // tweet on enter key in text area
@@ -29,6 +50,8 @@ $(() => {
 
   });
 });
+
+
 
 const postTweet = function(event) {
   event.preventDefault();

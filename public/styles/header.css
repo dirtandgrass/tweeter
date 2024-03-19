@@ -15,7 +15,7 @@
   cursor: pointer;
 
   .header-nav__down {
-    transition: ease-out 300ms;
+    transition: ease-out var(--transition-duration);
   }
 
   &:hover {

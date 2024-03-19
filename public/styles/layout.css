@@ -30,6 +30,7 @@ html {
   --primary-background-color: #f4f1ec;
 
 
+  --transition-duration: 300ms;
 
   --shadow-distance: calc(var(--border-width) *1.5);
   --header-nav-height: 120px;

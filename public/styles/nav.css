@@ -10,18 +10,50 @@
   inline-size: 100dvw;
   padding-block-start: 1em;
   font-size: 1.2em;
+
+  .header-nav__brand {
+    font-family: Bungee, "Arial Black", Arial, sans-serif;
+    font-size: 1.5em;
+  }
+
+  .header-nav__sub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
-.header-nav__brand {
-  font-family: Bungee, "Arial Black", Arial, sans-serif;
-  font-size: 1.5em;
-}
+.scroll-top {
+  display: none;
+  position: fixed;
 
-.header-nav__sub {
-  display: flex;
-  justify-content: center;
+  inset-block-end: 20px;
+  inset-inline-end: 5px;
+
+  background-color: var(--highlight-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+
+  i {
+    font-size: 0.7em;
+    color: var(--primary-contrast-color);
+
+    transition: ease-out var(--transition-duration);
+  }
+
+  &:hover {
+    background-color: var(--primary-color);
+  }
+
+  &:hover i {
+    color: var(--highlight-color);
+  }
 }
 
 .icon {
