@@ -20,6 +20,7 @@ $(() => {
 
 const postTweet = function(event) {
   event.preventDefault();
+  hideErrorMessage();
 
   const tweetElement = $(this).children('.new-tweet__inputtext');
   if(tweetElement.length === 0) {
@@ -64,6 +65,14 @@ const showErrorMessage = (message) => {
     $error.fadeOut('medium');
   },3000);
 };
+
+const hideErrorMessage = () => {
+  if(errorTimeout) {
+    clearTimeout(errorTimeout);
+  }
+  $('.error').fadeOut('medium');
+}
+
 
 const loadTweets = () => {
   $.getJSON('/tweets')
