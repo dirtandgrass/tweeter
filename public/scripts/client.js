@@ -32,10 +32,15 @@ $(() => {
 });
 
 const loadTweets = () => {
-  $.getJSON('/tweets', (data) => {
+  $.getJSON('/tweets')
+  .done((data) => {
     clearTweets();
     data.sort((a, b) => b.created_at - a.created_at);
     renderTweets(data);
+  })
+  .fail((jqXHR, status, err) => {
+    console.log("Error loading tweets");
+    console.log('Error:', status, err);
   });
 };
 
@@ -53,6 +58,7 @@ const renderTweets = (tweets) => {
 
 const createTweetElement = (tweet) => {
   const when = new Date(tweet.created_at);
+  const formattedTime = timeago !== undefined ? when.toLocaleString() : timeago.format(when);
 
   return $(`
   <article class="tweet">
