@@ -4,7 +4,6 @@ $(() => {
 
   $('#tweet-text').on('input', function() {
     const maxChars = 140;
-
     $(this).val(sanitize($(this).val()));
 
     const currentChars = $(this).val().length;

@@ -5,10 +5,17 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// eslint-disable-next-line no-undef
+
 $(() => {
   loadTweets();
   $('.new-tweet form').submit(postTweet);
+  // tweet on enter key in text area
+  $('#tweet-text').on('keyup', function(e) {
+    if(e.key === 'Enter') {
+      e.preventDefault();
+      $('.new-tweet form').submit();
+    }
+  });
 });
 
 const postTweet = function(event) {
@@ -19,9 +26,6 @@ const postTweet = function(event) {
     showErrorMessage('No tweet text element found! Please refresh the page');
     return;
   }
-
-
-
   const tweetText = sanitize(tweetElement.val()).trim();;
 
   if(tweetText.length === 0) {
@@ -36,19 +40,11 @@ const postTweet = function(event) {
 
   const tweetParams = $(this).serialize();
 
-  $.post('/tweets', tweetParams, (data) => {
-    $.getJSON('/tweets')
-    .done((data) => {
+  $.post('/tweets', tweetParams).done((data) => {
       $('.new-tweet__inputtext').val('');
       $('.new-tweet__counter').text('140');
-      clearTweets();
-      data.sort((a, b) => b.created_at - a.created_at);
-      renderTweets(data);
-
+      loadTweets();
     });
-  });
-
-
 }
 
 let errorTimeout;
