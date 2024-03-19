@@ -51,14 +51,26 @@ const clearTweets = () => {
 const renderTweets = (tweets) => {
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
-    $('.tweet-container').append($tweet);
+    $('.tweet-container').append($tweet)
+
   }
 };
 
 
 const createTweetElement = (tweet) => {
-  const when = new Date(tweet.created_at);
-  const formattedTime = timeago !== undefined ? when.toLocaleString() : timeago.format(when);
+
+  // if empty tweet, return
+  if(!tweet || !tweet.content || !tweet.content.text || !tweet.user || !tweet.user.name || !tweet.user.handle || !tweet.created_at) {
+    return;
+  };
+
+  const whenDate = new Date(tweet.created_at);
+  let whenString = tweet.created_at;
+
+  // if valid date, generate timeago string or locale string if timeago is not defined
+  if(whenDate instanceof Date && !isNaN(whenDate)) {
+    whenString = !timeago ? whenDate.toLocaleString() : timeago.format(whenDate);
+  }
 
   return $(`
   <article class="tweet">
@@ -73,7 +85,7 @@ const createTweetElement = (tweet) => {
           <p>${tweet.content.text}</p>
         </div>
         <footer>
-          <time class="tweet__age" datetime="${when.toISOString()}">${timeago.format(when)}</time>
+          <time class="tweet__age" datetime="${whenDate}">${whenString}</time>
           <div class="tweet__actions">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
