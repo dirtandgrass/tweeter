@@ -16,6 +16,10 @@ $(() => {
       $('.new-tweet form').submit();
     }
   });
+
+  $('.header-nav__sub').on('click', function() {
+    $('.new-tweet').slideToggle('medium');
+  });
 });
 
 const postTweet = function(event) {
