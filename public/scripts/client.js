@@ -7,30 +7,52 @@
 
 // eslint-disable-next-line no-undef
 $(() => {
-
   loadTweets();
+  $('.new-tweet form').submit(postTweet);
+});
+
+const postTweet = function(event) {
+  event.preventDefault();
+
+  const tweetElement = $(this).children('.new-tweet__inputtext');
+  if(tweetElement.length === 0) {
+    showErrorMessage('No tweet text element found! Please refresh the page');
+    return;
+  }
 
 
-  $('.new-tweet form').submit(function(event) {
-    event.preventDefault();
-    const tweetText = $(this).serialize();
+
+  console.log($(this).children('.new-tweet__inputtext').val());
+
+  const tweetText = $(this).serialize();
 
 
-    $.post('/tweets', tweetText, (data) => {
-      $.getJSON('/tweets', (data) => {
-        clearTweets();
-        data.sort((a, b) => b.created_at - a.created_at);
-        renderTweets(data);
+  $.post('/tweets', tweetText, (data) => {
+    $.getJSON('/tweets', (data) => {
+      clearTweets();
+      data.sort((a, b) => b.created_at - a.created_at);
+      renderTweets(data);
 
-      });
     });
-
-    $('.new-tweet__inputtext').val('');
-    $('.new-tweet__counter').text('140');
   });
 
+  $('.new-tweet__inputtext').val('');
+  $('.new-tweet__counter').text('140');
+}
 
-});
+let errorTimeout;
+const showErrorMessage = (message) => {
+  const $error = $('.error');
+  $error.text(message);
+  $error.fadeIn('medium');
+
+  if(errorTimeout) {
+    clearTimeout(errorTimeout);
+  }
+  errorTimeout = setTimeout(() => {
+    $error.fadeOut('medium');
+  },3000);
+};
 
 const loadTweets = () => {
   $.getJSON('/tweets')

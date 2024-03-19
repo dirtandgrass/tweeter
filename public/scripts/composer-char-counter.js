@@ -1,6 +1,6 @@
 
 
-$(function() {
+$(() => {
 
   $('#tweet-text').on('input', function() {
     const maxChars = 140;
