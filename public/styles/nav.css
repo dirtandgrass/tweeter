@@ -1,7 +1,7 @@
 .header-nav {
   background-color: var(--primary-color);
   color: var(--primary-contrast-color);
-  height: var(--header-nav-height);
+  block-size: var(--header-nav-height);
   padding-inline: 1.5em;
   display: flex;
   justify-content: space-between;

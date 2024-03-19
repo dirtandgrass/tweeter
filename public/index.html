@@ -30,6 +30,9 @@
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
     integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 
+  <!-- JQuery Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/timeago@1.6.7/jquery.timeago.min.js"></script>
+
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
@@ -71,7 +74,7 @@
       <article class="tweet">
         <header>
           <div class="tweet__profile">
-            <img src="images/profile_icons/female_1.png" />
+            <img src="images/profile_icons/female_1.png" alt="author avatar" />
             <div>Rhoda Jacobs</div>
           </div>
           <div class="tweet__handle">@MrsJacobs</div>
@@ -81,7 +84,7 @@
           </p>
         </div>
         <footer>
-          <div class="tweet__age">10 days ago</div>
+          <time class="tweet__age">10 days ago</time>
           <div class="tweet__actions">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
