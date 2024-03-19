@@ -26,7 +26,7 @@ const postTweet = function(event) {
     showErrorMessage('No tweet text element found! Please refresh the page');
     return;
   }
-  const tweetText = sanitize(tweetElement.val()).trim();;
+  const tweetText = tweetElement.val().trim();
 
   if(tweetText.length === 0) {
     showErrorMessage('No tweet text entered!');
@@ -47,7 +47,7 @@ const postTweet = function(event) {
       loadTweets();
     })
     .fail((jqXHR, status, err) => {
-      showErrorMessage(`Error posting tweet: <strong>${status}</strong><p>${err}`);
+      showErrorMessage(`Error posting tweet: <strong>${status}</strong><p>${err}</p>`);
     });
 }
 
