@@ -51,9 +51,15 @@ body {
 }
 
 main {
-  inline-size: 90%;
+  inline-size: 98%;
   margin-inline: auto;
   background-color: inherit;
+}
+
+@media only screen and (width >=1024px) {
+  main {
+    inline-size: 90%;
+  }
 }
 
 .button {

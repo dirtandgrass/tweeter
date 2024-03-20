@@ -9,7 +9,7 @@ const animSpeed = 250;
 
 $(() => {
 
-  $(window).on( "scroll", function() {
+  $(window).on("scroll", function() {
     if($(this).scrollTop() > 200) {
       $('.scroll-top').fadeIn(animSpeed).css('display', 'grid');
     } else {
@@ -111,15 +111,14 @@ const hideErrorMessage = () => {
 
 const loadTweets = () => {
   $.getJSON('/tweets')
-  .done((data) => {
-    clearTweets();
-    data.sort((a, b) => b.created_at - a.created_at);
-    renderTweets(data);
-  })
-  .fail((jqXHR, status, err) => {
-    console.log("Error loading tweets");
-    console.log('Error:', status, err);
-  });
+    .done((data) => {
+      clearTweets();
+      data.sort((a, b) => b.created_at - a.created_at);
+      renderTweets(data);
+    })
+    .fail((jqXHR, status, err) => {
+      showErrorMessage(`Error loading tweets: <strong>${status}</strong><p>${err}</p>`);
+    });
 };
 
 const clearTweets = () => {
