@@ -1,18 +1,13 @@
 .tweet-container {
-
-
   display: grid;
   align-items: center;
   /* grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); */
-  gap: 0.75em;
 
   .tweet {
     border: var(--border-width) solid;
     border-color: var(--primary-dark-color);
     padding: 0.75em;
     margin-block: 1.25em;
-
-
 
     &:hover {
       box-shadow: var(--shadow-distance) var(--shadow-distance) var(--primary-light-color);

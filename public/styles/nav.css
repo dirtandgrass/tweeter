@@ -2,14 +2,15 @@
   background-color: var(--primary-color);
   color: var(--primary-contrast-color);
   block-size: var(--header-nav-height);
-  padding-inline: 1.5em;
+  padding-inline: 0.25em;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   inline-size: 100dvw;
   padding-block-start: 1em;
-  font-size: 1.2em;
+  font-size: 0.8em;
+
 
   .header-nav__brand {
     font-family: Bungee, "Arial Black", Arial, sans-serif;
@@ -33,6 +34,13 @@
       .header-nav__down {
         transform: translateY(0.2em)
       }
+    }
+  }
+
+  @media only screen and (width >=1024px) {
+    & {
+      padding-inline: 1.5em;
+      font-size: 1.1em;
     }
   }
 }

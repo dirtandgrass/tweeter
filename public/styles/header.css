@@ -4,9 +4,9 @@
   align-items: center;
   background: var(--highlight-color) url('../images/3px-tile-50.png');
   background-blend-mode: overlay;
-  gap: 5px;
 
   .header__avatar {
+    padding: 2px;
     block-size: calc(var(--header-height) - 15em);
   }
 
@@ -25,6 +25,7 @@
     }
 
     .header__avatar {
+      padding: 0px;
       block-size: calc(var(--header-height) - 9.5em);
     }
 
