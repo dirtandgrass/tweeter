@@ -21,6 +21,19 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    cursor: pointer;
+
+    .header-nav__down {
+      transition: ease-out var(--transition-duration);
+    }
+
+    &:hover {
+      text-shadow: 0 0 4px var(--highlight-color);
+
+      .header-nav__down {
+        transform: translateY(0.2em)
+      }
+    }
   }
 }
 

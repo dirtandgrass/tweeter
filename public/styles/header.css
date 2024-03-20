@@ -1,40 +1,40 @@
 .header {
   padding-block-start: var(--header-nav-height);
-  block-size: var(--header-height);
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
   background: var(--highlight-color) url('../images/3px-tile-50.png');
   background-blend-mode: overlay;
-}
+  gap: 5px;
 
-
-.header-nav__sub {
-
-  cursor: pointer;
-
-  .header-nav__down {
-    transition: ease-out var(--transition-duration);
+  .header__avatar {
+    block-size: calc(var(--header-height) - 15em);
   }
 
-  &:hover {
-    text-shadow: 0 0 4px var(--highlight-color);
+  .header__name {
+    color: var(--primary-contrast-color);
+    margin-block: 0;
+    font-weight: 300;
+    font-size: 0.9em;
+  }
 
-    .header-nav__down {
-      transform: translateY(0.2em)
+  @media only screen and (width >=1024px) {
+    & {
+      block-size: var(--header-height);
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .header__avatar {
+      block-size: calc(var(--header-height) - 9.5em);
+    }
+
+    .header__name {
+      font-size: 1.5em;
+
     }
   }
-}
 
 
 
-.header__avatar {
-  block-size: calc(var(--header-height) - 9.5em);
-}
 
-.header__name {
-  color: var(--primary-contrast-color);
-  margin-block: 0;
-  font-weight: 300;
 }
