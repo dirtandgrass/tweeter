@@ -7,7 +7,7 @@
 
   .header__avatar {
     padding: 2px;
-    block-size: calc(var(--header-height) - 15em);
+    block-size: calc((var(--header-height) - 16em) - (-10vw));
   }
 
   .header__name {

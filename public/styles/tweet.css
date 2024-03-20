@@ -1,13 +1,17 @@
 .tweet-container {
   display: grid;
-  align-items: center;
-  /* grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); */
+
+  @media only screen and (width >=1024px) {
+    column-gap: 0.75em;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  }
 
   .tweet {
     border: var(--border-width) solid;
     border-color: var(--primary-dark-color);
     padding: 0.75em;
-    margin-block: 1.25em;
+    margin-block: 0.5em;
+    background-color: var(--primary-background-color);
 
     &:hover {
       box-shadow: var(--shadow-distance) var(--shadow-distance) var(--primary-light-color);
@@ -21,7 +25,7 @@
     }
 
     header {
-      block-size: 2.75em;
+      block-size: 1.25em;
     }
 
     footer {
@@ -31,41 +35,65 @@
       margin-block-start: 0.5em;
     }
 
+    .tweet__profile {
+      display: flex;
+      align-items: inherit;
 
-  }
+      img {
+        max-block-size: 48px;
+        aspect-ratio: 1/1;
+        margin-inline-end: 0.25em;
+      }
+    }
 
-  .tweet__profile {
-    display: flex;
-    align-items: inherit;
+    .tweet__handle {
+      color: var(--primary-light-color);
+    }
 
-    img {
-      max-block-size: 64px;
-      aspect-ratio: 1/1;
-      margin-inline-end: 0.25em;
+    .tweet__tweet {
+      font-weight: 400;
+
+
+      border-block-end: var(--border-width) solid;
+      border-block-end-color: var(--primary-dark-color);
+    }
+
+    .tweet__actions i {
+      padding-inline: 0.15em;
+
+      &:hover {
+        cursor: pointer;
+        color: var(--highlight-color);
+      }
+    }
+
+    @media only screen and (width >=1024px) {
+
+      & {
+        /* margin-block: 1em; */
+        transition: scale ease-out 100ms;
+      }
+
+      &:hover {
+        scale: 1.08;
+      }
+
+      header {
+        block-size: 2.75em;
+      }
+
+      .tweet__profile {
+        img {
+          max-block-size: 60px;
+
+        }
+      }
+
+      .tweet__tweet {
+        padding: 0.5em;
+
+      }
+
     }
   }
-
-  .tweet__handle {
-    color: var(--primary-light-color);
-  }
-
-  .tweet__tweet {
-    font-weight: 400;
-    padding: 0.5em;
-
-    border-block-end: var(--border-width) solid;
-    border-block-end-color: var(--primary-dark-color);
-  }
-
-  .tweet__actions i {
-    padding-inline: 0.15em;
-
-    &:hover {
-      cursor: pointer;
-      color: var(--highlight-color);
-    }
-  }
-
-
-
 }
